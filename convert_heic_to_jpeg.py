@@ -7,7 +7,7 @@ Expects JPEG_PATH already exits.
 
 import datetime
 import os
-import PIL
+from PIL import Image
 import pyheif
 import pytz
 import subprocess
@@ -36,7 +36,7 @@ def convert_to_and_save_as_jpeg(heic_filename: str, jpeg_filename: str):
         if whatimage.identify_image(image_bytes) != 'heic':
             raise RuntimeError('The given image is not heic.')
         image = pyheif.read_heif(image_bytes)
-        pi = PIL.Image.frombytes(mode=image.mode, size=image.size, data=image.data)
+        pi = Image.frombytes(mode=image.mode, size=image.size, data=image.data)
         pi.save(os.path.join(JPEG_PATH, jpeg_filename), format="jpeg")
 
 # Convert all HEIC file in HEIC_PATH and save as JPEG in JPEG_PATH.

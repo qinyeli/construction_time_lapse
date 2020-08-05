@@ -11,7 +11,8 @@ import os
 
 JPEG_PATH = 'jpeg_img'
 jpeg_filenames = sorted(os.listdir(JPEG_PATH))
-jpeg_filenames.remove('.DS_Store')
+if jpeg_filenames.count('.DS_Store') != 0:
+	jpeg_filenames.remove('.DS_Store')
 
 # Get the frame size.
 frame = cv2.imread(os.path.join(JPEG_PATH, jpeg_filenames[0]))
@@ -31,7 +32,7 @@ height, width, layers = frame.shape
 # duration.append(int(sum(duration) / len(duration)))
 
 fourcc = cv2.VideoWriter_fourcc(*'avc1')
-video = cv2.VideoWriter('mp6_construction.mov', fourcc, 4, (width, height))
+video = cv2.VideoWriter('mp6_construction.mov', fourcc, 16, (width, height))
 for i in range(len(jpeg_filenames)):
     filename = jpeg_filenames[i]
     video.write(cv2.imread(os.path.join(JPEG_PATH, filename)))
