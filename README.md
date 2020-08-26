@@ -11,4 +11,7 @@ One of the issues I had was that even though all these photos are taken against 
 
 And therefore this repo. Some little scripts for processing the photos into a nice movie.
 
+Final result: https://www.youtube.com/watch?v=uzMYA3KmFLk  
+Removing some of the blurry photos did make it better, but the video is still shaky towards the end :(
+
 \#NerdsTimeKiller
